@@ -1,0 +1,33 @@
+{
+    "members": [
+        {
+            "name": "Batman",
+            "age": 30,
+            "secretIdentity": "Bruce Wayne",
+            "powers": [
+                "Disguise",
+                "Escape master",
+                "Become a bat"
+            ]
+        },
+        {
+            "name": "Superman",
+            "age": 42,
+            "secretIdentity": "Klark Kent",
+            "powers": [
+                "Superpower",
+                "Flight",
+                "Immortality"
+            ]
+        },
+        {
+            "name": "The Flash",
+            "age": 25,
+            "secretIdentity": "Barry Allen",
+            "powers": [
+                "Super speed",
+                "Time travel"
+            ]
+        }
+    ]
+}

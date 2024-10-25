@@ -5,4 +5,4 @@ path = "grades.csv"
 
 def test_average_grade():
     average = average_grade("grades.csv")
-    assert average == pytest.approx(10)
+    assert average == 10

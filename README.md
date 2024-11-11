@@ -15,6 +15,7 @@
 * [KT2](KT2/KT2.ipynb)
 * [KT3](KT3/KT3.ipynb)
 * [KT4](KT4/KT4.ipynb)
+* [KT5](KT5/KT5.ipynb)
 
 # ⚙️Конфигурация
 Просто открой этот проект в своей IDE.

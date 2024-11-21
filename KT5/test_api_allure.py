@@ -53,19 +53,21 @@ def store_order():
         "complete": True
     }
 
-@allure.suite("1")
+@allure.suite("Создаем пользователя")
 @allure.step("Создаем пользователя")
 def test_user_create(user_data_list):
     response = requests.post(f"{URL}/user/createWithArray", json=user_data_list, headers=HEADERS)
     with step("Проверяем код ответа"):
         assert response.status_code == 200, f"Код ответа POST-запроса на создание: {response.status_code}"
 
+@allure.suite("Логинимся")
 @allure.step("Логинимся")
 def test_user_login(user_data):
     response = requests.get(f"{URL}/user/login", data={'username': user_data['username'], 'password': user_data['password']}, headers=HEADERS)
     with step("Проверяем код ответа"):
         assert response.status_code == 200, f"Код ответа GET-запроса на логин: {response.status_code}"
 
+@allure.suite("Обновляем логин пользователя")
 @allure.step("Обновляем логин пользователя")
 def test_user_update(user_data):
     updated = user_data.copy()
@@ -74,18 +76,21 @@ def test_user_update(user_data):
     with step("Проверяем код ответа"):
         assert response.status_code == 200, f"Код ответа PUT-запроса на обновление: {response.status_code}"
 
+@allure.suite("Ищем пользователя")
 @allure.step("Ищем пользователя")
 def test_user_get(user_data):
     response = requests.get(f"{URL}/user/{user_data['username']}", json={'username': user_data['username']}, headers=HEADERS)
     with step("Проверяем код ответа"):
         assert response.status_code == 200, f"Код ответа GET-запроса на получение: {response.status_code}"
 
+@allure.suite("Смотрим инвентарь")
 @allure.step("Смотрим инвентарь")
 def test_store_pet_inventory():
     response = requests.get(f"{URL}/store/inventory", headers=HEADERS)
     with step("Проверяем код ответа"):
         assert response.status_code == 200, f"Код ответа GET-запроса на инвентарь: {response.status_code}"
 
+@allure.suite("Размещаем заказ на питомца")
 @allure.step("Размещаем заказ на питомца")
 def test_store_order(store_order):
     response = requests.post(f"{URL}/store/order", json=store_order, headers=HEADERS)
@@ -95,6 +100,7 @@ def test_store_order(store_order):
         store_data = response.json()
         assert store_data['id'] == store_order['id']
 
+@allure.suite("Ищем заказ")
 @allure.step("Ищем заказ")
 def test_store_get_order(store_order):
     response = requests.get(f"{URL}/store/order/{store_order['id']}", headers=HEADERS)
@@ -104,6 +110,7 @@ def test_store_get_order(store_order):
         store_data = response.json()
         assert store_data['id'] == store_order['id']
 
+@allure.suite("Удаляем заказ")
 @allure.step("Удаляем заказ")
 def test_store_delete_order(store_order):
     response = requests.delete(f"{URL}/store/order/{store_order['id']}", headers=HEADERS)
